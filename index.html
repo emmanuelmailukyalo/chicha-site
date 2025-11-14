@@ -1,0 +1,1644 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Redeemed Gospel Church</title>
+<meta name="description" content="Redeemed Gospel Church - Worship | Sermons | Ministries | Events" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --text:#111213;
+    --muted:#666b70;
+    --accent:#c8102e;
+    --accent-2:#9b0a22;
+    --accent-light:#f5e6e8;
+    --card:#f8f8f9;
+    --card-dark:#1a1a1a;
+    --radius:14px;
+    --glass: rgba(255,255,255,0.7);
+    --maxw:1240px;
+    --shadow: 0 8px 24px rgba(16,24,40,0.08);
+    --shadow-sm: 0 4px 12px rgba(16,24,40,0.04);
+    --shadow-lg: 0 16px 48px rgba(16,24,40,0.12);
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    color:var(--text);
+    background:linear-gradient(135deg, #ffffff 0%, #fafbfc 50%, #f5f6fa 100%);
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+
+  /* Subtle animated background pattern */
+  body::before{
+    content:'';
+    position:fixed;
+    top:0;left:0;width:100%;height:100%;
+    background:
+      radial-gradient(circle at 20% 50%, rgba(200,16,46,0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(200,16,46,0.02) 0%, transparent 50%);
+    pointer-events:none;
+    z-index:-1;
+  }
+
+  .site{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+  }
+
+  /* Header / Nav */
+  header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    display:flex;
+    gap:24px;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 28px;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(16,24,40,0.06);
+    box-shadow:0 4px 16px rgba(16,24,40,0.03);
+  }
+
+  .brand{
+    display:flex;
+    gap:14px;
+    align-items:center;
+    cursor:pointer;
+    text-decoration:none;
+    flex-shrink:0;
+  }
+
+  .logo{
+    width:56px;
+    height:56px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    color:white;
+    font-weight:800;
+    font-size:24px;
+    box-shadow:0 8px 24px rgba(200,16,46,0.2);
+    flex-shrink:0;
+  }
+
+  .brand h1{
+    margin:0;
+    font-size:18px;
+    letter-spacing:-0.4px;
+    font-weight:700;
+  }
+
+  .brand p{margin:0;font-size:12px;color:var(--muted)}
+
+  nav{display:flex;gap:12px;align-items:center;flex:1;justify-content:center;}
+  nav a{
+    text-decoration:none;
+    color:var(--muted);
+    padding:8px 14px;
+    border-radius:10px;
+    font-weight:500;
+    transition:all .22s ease;
+    font-size:14px;
+  }
+  nav a:hover{background:rgba(200,16,46,0.08); color:var(--accent); font-weight:600}
+  
+  .cta{
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    color:white;
+    padding:10px 18px;
+    font-weight:600;
+    border:0;
+    cursor:pointer;
+    margin-left:auto;
+    flex-shrink:0;
+  }
+
+  .mobile-menu-btn{
+    display:none;
+    background:none;
+    border:0;
+    font-size:24px;
+    cursor:pointer;
+    color:var(--text);
+  }
+
+  /* Hero */
+  .hero{
+    display:grid;
+    grid-template-columns:1fr 450px;
+    gap:40px;
+    align-items:center;
+    padding:64px 28px;
+    max-width:var(--maxw);
+    margin:0 auto;
+    width:100%;
+    animation:fadeInUp .8s ease forwards;
+  }
+
+  .hero-left{
+    padding:20px;
+  }
+
+  .eyebrow{
+    display:inline-block;
+    font-weight:600;
+    font-size:13px;
+    color:var(--accent-2);
+    background:var(--accent-light);
+    padding:8px 14px;
+    border-radius:999px;
+    margin-bottom:16px;
+    animation:fadeInUp .8s ease .1s forwards;
+    opacity:0;
+  }
+
+  h2{
+    margin:0 0 16px 0;
+    font-size:48px;
+    line-height:1.1;
+    letter-spacing:-0.8px;
+    font-family:"Playfair Display", serif;
+    font-weight:800;
+    animation:fadeInUp .8s ease .2s forwards;
+    opacity:0;
+  }
+
+  p.lead{color:var(--muted); margin:0 0 24px 0; max-width:90%; animation:fadeInUp .8s ease .3s forwards; opacity:0}
+
+  .hero-ctas{display:flex;gap:14px;align-items:center;flex-wrap:wrap; animation:fadeInUp .8s ease .4s forwards; opacity:0}
+
+  .btn{
+    display:inline-flex;
+    gap:10px;
+    align-items:center;
+    padding:12px 20px;
+    border-radius:12px;
+    font-weight:700;
+    text-decoration:none;
+    border:1px solid rgba(16,24,40,0.08);
+    transition:all .24s cubic-bezier(0.34, 1.56, 0.64, 1);
+    font-size:14px;
+    cursor:pointer;
+  }
+
+  .btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 36px rgba(200,16,46,0.2);
+  }
+
+  .btn.primary{
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    color:#fff;
+    border:0;
+    box-shadow:0 8px 24px rgba(200,16,46,0.2);
+  }
+
+  .btn.primary:hover{
+    box-shadow:0 12px 36px rgba(200,16,46,0.3);
+  }
+
+  .btn.ghost{background:transparent; color:var(--accent-2); border:2px solid var(--accent)}
+
+  /* Hero right media */
+  .hero-right{
+    border-radius:18px;
+    overflow:hidden;
+    background:linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.02));
+    box-shadow:var(--shadow-lg);
+    animation:fadeInUp .8s ease .3s forwards;
+    opacity:0;
+  }
+
+  .media{
+    position:relative;
+    height:300px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background-image:url('https://images.unsplash.com/photo-1516214104703-3efca8d1e58d?q=80&w=1600&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+    filter:contrast(.95) saturate(.92);
+  }
+
+  .media::after{
+    content:'';
+    position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(0,0,0,0.12), rgba(255,255,255,0.08));
+  }
+
+  .media .play{
+    position:relative;
+    z-index:2;
+    width:80px;
+    height:80px;
+    border-radius:999px;
+    display:grid;
+    place-items:center;
+    background:rgba(255,255,255,0.92);
+    box-shadow:0 12px 40px rgba(0,0,0,0.25);
+    transition:all .24s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor:pointer;
+  }
+
+  .media .play:hover{
+    transform:scale(1.12);
+    box-shadow:0 16px 48px rgba(200,16,46,0.3);
+    background:#fff;
+  }
+
+  .media .play svg{width:28px;height:28px; color:var(--accent-2)}
+
+  .service-info{
+    display:flex;
+    gap:14px;
+    padding:16px;
+    align-items:center;
+    animation:fadeInUp .8s ease .5s forwards;
+    opacity:0;
+  }
+
+  .pill{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:999px;
+    background:var(--accent-light);
+    color:var(--accent-2);
+    font-weight:700;
+    font-size:13px;
+    flex-shrink:0;
+  }
+
+  /* Main content */
+  main{flex:1;}
+  section{padding:60px 28px;border-top:1px solid rgba(16,24,40,0.04)}
+
+  section:nth-child(even){background:linear-gradient(135deg, rgba(245,245,245,0.5) 0%, rgba(250,250,250,0.8) 100%)}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; display:block}
+
+  section h3{
+    font-family:"Playfair Display", serif;
+    font-size:36px;
+    margin:0 0 8px 0;
+    font-weight:800;
+  }
+
+  section > p{
+    color:var(--muted);
+    max-width:70%;
+    margin:0;
+  }
+
+  /* EVENTS - moved to after hero */
+  .events-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:24px;
+    margin-top:28px;
+  }
+
+  .event{
+    background:white;
+    padding:24px;
+    border-radius:14px;
+    box-shadow:var(--shadow);
+    transition:all .24s ease;
+    border-left:6px solid var(--accent);
+    animation:fadeInUp .6s ease forwards;
+    opacity:0;
+  }
+
+  .event:nth-child(1){animation-delay:.1s}
+  .event:nth-child(2){animation-delay:.2s}
+  .event:nth-child(3){animation-delay:.3s}
+
+  .event:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--shadow-lg);
+  }
+
+  .event .date{
+    font-weight:800;
+    color:var(--accent);
+    font-size:24px;
+    margin-bottom:8px;
+    font-family:"Playfair Display", serif;
+  }
+
+  .event .title{
+    font-weight:700;
+    margin-bottom:4px;
+  }
+
+  .event .time{
+    color:var(--muted);
+    font-size:13px;
+    margin-bottom:12px;
+  }
+
+  .event p{color:var(--muted);margin:0;font-size:14px}
+
+  /* About */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:28px;align-items:start}
+
+  .about-card{background:white;padding:28px;border-radius:14px;box-shadow:var(--shadow);transition:all .24s ease}
+
+  .about-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+
+  .about-card h4{
+    margin:0 0 12px 0;
+    font-weight:700;
+    font-size:16px;
+    color:var(--accent);
+  }
+
+  .about-card p{margin:0 0 16px 0; color:var(--muted); font-size:14px}
+
+  .leaders{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:16px;
+  }
+
+  .leader{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    background:var(--accent-light);
+    padding:12px;
+    border-radius:10px;
+    flex:1;
+    min-width:180px;
+  }
+
+  .leader img{
+    width:56px;
+    height:56px;
+    border-radius:10px;
+    object-fit:cover;
+  }
+
+  .leader strong{font-size:14px}
+  .leader .role{font-size:12px;color:var(--muted)}
+
+  /* MINISTRIES - scrollable/expandable */
+  .ministries-scroll{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:24px;
+    margin-top:28px;
+  }
+
+  .ministry-card{
+    background:white;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    transition:all .3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor:pointer;
+    position:relative;
+    height:320px;
+    display:flex;
+    flex-direction:column;
+  }
+
+  .ministry-card:hover{
+    transform:translateY(-12px);
+    box-shadow:var(--shadow-lg);
+  }
+
+  .ministry-header{
+    height:140px;
+    background:linear-gradient(135deg, var(--accent), var(--accent-2));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:48px;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .ministry-header::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at 30% 70%, rgba(255,255,255,0.15) 0%, transparent 70%);
+  }
+
+  .ministry-icon{
+    position:relative;
+    z-index:1;
+    filter:drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+  }
+
+  .ministry-body{
+    flex:1;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+
+  .ministry-card h4{
+    margin:0 0 8px 0;
+    font-weight:700;
+    font-size:16px;
+  }
+
+  .ministry-card p{
+    margin:0;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.5;
+  }
+
+  .ministry-more{
+    color:var(--accent);
+    font-weight:700;
+    font-size:13px;
+    margin-top:8px;
+    cursor:pointer;
+    transition:all .2s ease;
+  }
+
+  .ministry-card:hover .ministry-more{
+    gap:6px;
+    transform:translateX(4px);
+  }
+
+  /* GALLERY */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:16px;
+    margin-top:28px;
+  }
+
+  .gallery-item{
+    position:relative;
+    height:240px;
+    border-radius:12px;
+    overflow:hidden;
+    cursor:pointer;
+    box-shadow:var(--shadow);
+    transition:all .3s ease;
+    background:#f0f0f0;
+  }
+
+  .gallery-item:hover{
+    transform:scale(1.04);
+    box-shadow:var(--shadow-lg);
+  }
+
+  .gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .3s ease;
+  }
+
+  .gallery-item:hover img{
+    transform:scale(1.08);
+  }
+
+  .gallery-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.3);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:0;
+    transition:opacity .3s ease;
+  }
+
+  .gallery-item:hover .gallery-overlay{
+    opacity:1;
+  }
+
+  .gallery-overlay svg{
+    width:40px;
+    height:40px;
+    color:white;
+    filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+  }
+
+  /* Lightbox */
+  .lightbox{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    background:rgba(0,0,0,0.9);
+    align-items:center;
+    justify-content:center;
+    animation:fadeIn .3s ease;
+  }
+
+  .lightbox.active{display:flex}
+
+  .lightbox-content{
+    position:relative;
+    max-width:90%;
+    max-height:90%;
+  }
+
+  .lightbox img{
+    width:100%;
+    height:auto;
+    border-radius:8px;
+    max-height:85vh;
+    object-fit:contain;
+  }
+
+  .lightbox-close{
+    position:absolute;
+    top:20px;
+    right:20px;
+    background:rgba(255,255,255,0.1);
+    border:none;
+    color:white;
+    font-size:32px;
+    cursor:pointer;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:all .2s ease;
+  }
+
+  .lightbox-close:hover{
+    background:rgba(255,255,255,0.2);
+    transform:scale(1.1);
+  }
+
+  /* Sermons */
+  .sermon-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
+    margin-top:28px;
+  }
+
+  .sermon{
+    background:white;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    transition:all .24s ease;
+    animation:fadeInUp .6s ease forwards;
+    opacity:0;
+  }
+
+  .sermon:nth-child(1){animation-delay:.1s}
+  .sermon:nth-child(2){animation-delay:.2s}
+  .sermon:nth-child(3){animation-delay:.3s}
+
+  .sermon:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--shadow-lg);
+  }
+
+  .sermon .thumb{
+    height:160px;
+    background:linear-gradient(135deg, rgba(200,16,46,0.1), rgba(155,10,34,0.1));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:48px;
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+  }
+
+  .sermon .thumb::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:rgba(200,16,46,0.1);
+    transition:all .3s ease;
+  }
+
+  .sermon:hover .thumb::after{
+    background:rgba(200,16,46,0.2);
+  }
+
+  .sermon-body{padding:16px}
+
+  .sermon strong{display:block;margin-bottom:6px;font-size:15px}
+
+  .sermon .meta{
+    font-size:12px;
+    color:var(--muted);
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:8px;
+  }
+
+  .sermon p{color:var(--muted);margin:0;font-size:13px}
+
+  /* Giving */
+  .giving-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:24px;
+    margin-top:28px;
+  }
+
+  .pay{
+    background:white;
+    padding:24px;
+    border-radius:14px;
+    box-shadow:var(--shadow);
+    transition:all .24s ease;
+  }
+
+  .pay:hover{
+    transform:translateY(-6px);
+    box-shadow:var(--shadow-lg);
+  }
+
+  .pay strong{display:block;margin-bottom:8px;font-size:16px;color:var(--text)}
+
+  .pay-detail{font-size:13px;color:var(--muted);margin-bottom:12px}
+
+  .pay button{
+    padding:10px 14px;
+    border-radius:10px;
+    border:0;
+    font-weight:700;
+    font-size:13px;
+    cursor:pointer;
+    width:100%;
+    transition:all .2s ease;
+  }
+
+  .pay button:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,0.12)}
+
+  .mpesa{background:linear-gradient(90deg,#ffb300,#ff9800);color:white}
+  .paypal{background:linear-gradient(90deg,#003087,#003087);color:white}
+  .bank{background:linear-gradient(90deg,#1b1f23,#2d3139);color:white}
+  .general{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white}
+
+  /* Contact */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    margin-top:28px;
+  }
+
+  form{display:flex;flex-direction:column;gap:14px}
+
+  input,textarea,select{
+    padding:14px 16px;
+    border-radius:10px;
+    border:1px solid rgba(16,24,40,0.08);
+    font-size:14px;
+    font-family:inherit;
+    transition:all .2s ease;
+  }
+
+  input:focus,textarea:focus,select:focus{
+    outline:none;
+    border-color:var(--accent);
+    box-shadow:0 0 0 3px rgba(200,16,46,0.1);
+  }
+
+  button[type=submit]{
+    padding:14px 20px;
+    border-radius:12px;
+    border:0;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    color:white;
+    font-weight:700;
+    cursor:pointer;
+    transition:all .24s ease;
+    box-shadow:0 8px 24px rgba(200,16,46,0.2);
+  }
+
+  button[type=submit]:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 32px rgba(200,16,46,0.3);
+  }
+
+  .map{
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    height:400px;
+  }
+
+  .contact-info{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+  }
+
+  .contact-item{
+    padding:16px;
+    background:white;
+    border-radius:10px;
+    border-left:4px solid var(--accent);
+  }
+
+  .contact-item strong{display:block;margin-bottom:6px;color:var(--accent)}
+  .contact-item div{color:var(--muted);font-size:14px}
+
+  /* CTA Section */
+  .cta-section{
+    background:linear-gradient(135deg, var(--accent), var(--accent-2));
+    color:white;
+    padding:60px 28px;
+    text-align:center;
+    border-radius:20px;
+    margin:40px 28px;
+    box-shadow:var(--shadow-lg);
+    max-width:var(--maxw);
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .cta-section h3{color:white;margin-top:0}
+  .cta-section p{color:rgba(255,255,255,0.9);max-width:100%}
+
+  .cta-buttons{
+    display:flex;
+    gap:16px;
+    justify-content:center;
+    margin-top:24px;
+    flex-wrap:wrap;
+  }
+
+  .cta-section .btn{
+    background:white;
+    color:var(--accent-2);
+    padding:12px 24px;
+  }
+
+  .cta-section .btn:hover{background:rgba(255,255,255,0.95)}
+
+  /* Footer */
+  footer{
+    background:linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color:white;
+    padding:60px 28px 24px;
+    margin-top:40px;
+  }
+
+  .footer-content{
+    max-width:var(--maxw);
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:40px;
+    margin-bottom:40px;
+  }
+
+  .footer-section h4{
+    font-weight:700;
+    margin:0 0 16px 0;
+    color:var(--accent);
+    font-size:16px;
+  }
+
+  .footer-section p{
+    margin:0;
+    color:rgba(255,255,255,0.7);
+    font-size:14px;
+    line-height:1.6;
+  }
+
+  .footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .footer-links a{
+    color:rgba(255,255,255,0.7);
+    text-decoration:none;
+    font-size:14px;
+    transition:all .2s ease;
+  }
+
+  .footer-links a:hover{
+    color:white;
+    padding-left:4px;
+  }
+
+  .social-links{
+    display:flex;
+    gap:12px;
+    margin-top:12px;
+  }
+
+  .social-links a{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.1);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    text-decoration:none;
+    transition:all .2s ease;
+  }
+
+  .social-links a:hover{
+    background:var(--accent);
+    transform:translateY(-4px);
+  }
+
+  .footer-bottom{
+    max-width:var(--maxw);
+    margin:0 auto;
+    border-top:1px solid rgba(255,255,255,0.1);
+    padding-top:24px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:13px;
+    color:rgba(255,255,255,0.6);
+    flex-wrap:wrap;
+    gap:12px;
+  }
+
+  .footer-bottom a{
+    color:rgba(255,255,255,0.7);
+    text-decoration:none;
+    transition:color .2s ease;
+  }
+
+  .footer-bottom a:hover{color:white}
+
+  /* Animations */
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+  .fade-up{opacity:0;transform:translateY(20px);animation:fadeInUp .6s ease forwards}
+  .stagger-1{animation-delay:.08s}
+  .stagger-2{animation-delay:.16s}
+  .stagger-3{animation-delay:.24s}
+
+  /* Modal */
+  .modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:1200;
+    align-items:center;
+    justify-content:center;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(4px);
+    animation:fadeIn .3s ease;
+  }
+
+  .modal.active{display:flex}
+
+  .modal-content{
+    width:90%;
+    max-width:900px;
+    background:white;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,0.3);
+  }
+
+  .modal-header{
+    display:flex;
+    justify-content:flex-end;
+    padding:12px;
+    background:rgba(0,0,0,0.02);
+  }
+
+  .modal-close{
+    background:none;
+    border:0;
+    font-size:28px;
+    cursor:pointer;
+    color:var(--muted);
+    transition:color .2s ease;
+  }
+
+  .modal-close:hover{color:var(--text)}
+
+  .modal-body{padding:20px}
+
+  .iframe-container{
+    position:relative;
+    padding-top:56.25%;
+    height:0;
+    overflow:hidden;
+  }
+
+  .iframe-container iframe{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border:0;
+  }
+
+  /* Responsive */
+  @media (max-width:768px){
+    header{
+      flex-wrap:wrap;
+      padding:12px 16px;
+    }
+
+    nav{
+      order:3;
+      width:100%;
+      margin-top:12px;
+      flex-wrap:wrap;
+      justify-content:flex-start;
+    }
+
+    .mobile-menu-btn{display:block}
+
+    nav.hidden{display:none}
+
+    .cta{margin:0;margin-top:12px}
+
+    .hero{
+      grid-template-columns:1fr;
+      gap:24px;
+      padding:40px 16px;
+    }
+
+    .hero-right{order:2;margin-top:20px}
+
+    h2{font-size:32px}
+
+    p.lead{max-width:100%}
+
+    .contact-grid{
+      grid-template-columns:1fr;
+    }
+
+    .map{height:300px}
+
+    .about-grid{
+      grid-template-columns:1fr;
+    }
+
+    .footer-content{
+      grid-template-columns:1fr;
+      gap:24px;
+    }
+
+    .footer-bottom{
+      flex-direction:column;
+      text-align:center;
+    }
+
+    section{padding:40px 16px}
+
+    .cta-section{margin:20px 16px}
+
+    section h3{font-size:28px}
+
+    .ministries-scroll{
+      grid-template-columns:1fr;
+    }
+  }
+
+  @media (max-width:480px){
+    .brand p{display:none}
+    .brand h1{font-size:16px}
+    .logo{width:48px;height:48px;font-size:20px}
+    h2{font-size:26px}
+    section h3{font-size:24px}
+    .hero-ctas{flex-direction:column;width:100%}
+    .btn{width:100%}
+    nav{gap:8px}
+    nav a{padding:6px 10px;font-size:13px}
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar{width:8px}
+  ::-webkit-scrollbar-track{background:rgba(0,0,0,0.05)}
+  ::-webkit-scrollbar-thumb{background:rgba(200,16,46,0.4);border-radius:10px}
+  ::-webkit-scrollbar-thumb:hover{background:rgba(200,16,46,0.6)}
+</style>
+</head>
+<body>
+  <div class="site" role="application">
+    <header>
+      <a class="brand" href="#home" onclick="scrollToSection('home')">
+        <div class="logo">✝</div>
+        <div>
+          <h1>Redeemed Gospel Church</h1>
+          <p>Worship • Community • Discipleship</p>
+        </div>
+      </a>
+
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle navigation">☰</button>
+
+      <nav id="navMenu" aria-label="Primary">
+        <a href="#home" onclick="scrollToSection('home')">Home</a>
+        <a href="#events" onclick="scrollToSection('events')">Events</a>
+        <a href="#about" onclick="scrollToSection('about')">About</a>
+        <a href="#ministries" onclick="scrollToSection('ministries')">Ministries</a>
+        <a href="#gallery" onclick="scrollToSection('gallery')">Gallery</a>
+        <a href="#sermons" onclick="scrollToSection('sermons')">Sermons</a>
+        <a href="#giving" onclick="scrollToSection('giving')">Giving</a>
+        <a href="#contact" onclick="scrollToSection('contact')">Contact</a>
+      </nav>
+
+      <button class="cta" onclick="scrollToSection('giving')">Give Now</button>
+    </header>
+
+    <main id="home" class="site">
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-left">
+          <div class="eyebrow">You're invited this Sunday</div>
+          <h2 id="hero-title">Welcome to Redeemed Gospel Church</h2>
+          <p class="lead">A warm, contemporary church family devoted to worship, discipleship, and serving our community. Join us for inspiring sermons, life-changing community groups, and ministry opportunities.</p>
+          <div class="hero-ctas">
+            <a class="btn primary" href="#events" onclick="scrollToSection('events')">Join Us This Sunday</a>
+            <a class="btn ghost" onclick="openSermonModal('https://www.youtube.com/embed/ysz5S6PUM-U')">Watch Sermons</a>
+          </div>
+
+          <div class="service-info">
+            <span class="pill">Service Times</span>
+            <span style="color:var(--muted);font-size:14px">Sundays • 9:00 AM & 11:00 AM</span>
+          </div>
+        </div>
+
+        <div class="hero-right" aria-hidden="false">
+          <div class="media" role="img" aria-label="Worship background">
+            <div class="play" title="Watch latest sermon" role="button" onclick="openSermonModal('https://www.youtube.com/embed/ysz5S6PUM-U')" tabindex="0">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M8 5v14l11-7L8 5z" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;padding:16px;align-items:center;justify-content:space-between;border-top:1px solid rgba(0,0,0,0.06)">
+            <div>
+              <strong style="font-size:14px">Latest Sermon</strong>
+              <div style="color:var(--muted);font-size:13px;margin-top:2px">Hope Renewed — Pastor Joshua Kat</div>
+            </div>
+            <div style="font-size:13px;color:var(--muted);text-align:right;white-space:nowrap">Mar 3, 2025<br>42 min</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EVENTS - NOW AFTER HERO -->
+      <section id="events" aria-labelledby="events-title">
+        <div class="wrap">
+          <h3 id="events-title">Upcoming Events</h3>
+          <p>Join us for meaningful worship, fellowship, and service opportunities</p>
+
+          <div class="events-grid">
+            <div class="event">
+              <div class="date">Nov 22</div>
+              <div class="title">Community Food Drive</div>
+              <div class="time">10:00 AM • Busara Stage</div>
+              <p>Join us to serve families in need — collection and distribution.</p>
+            </div>
+
+            <div class="event">
+              <div class="date">Dec 12</div>
+              <div class="title">Christmas Carols</div>
+              <div class="time">6:00 PM • Church Hall</div>
+              <p>An evening of worship, carols, and festive fellowship.</p>
+            </div>
+
+            <div class="event">
+              <div class="date">Jan 5</div>
+              <div class="title">New Year Prayer Night</div>
+              <div class="time">7:00 PM • Main Auditorium</div>
+              <p>Prayer, prophecy, and vision casting for the year ahead.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" aria-labelledby="about-title">
+        <div class="wrap">
+          <h3 id="about-title">About Redeemed Gospel Church</h3>
+          <p>Rooted in prayer, worship, and outreach since 2011</p>
+
+          <div class="about-grid">
+            <div class="about-card">
+              <h4>Our Mission</h4>
+              <p>To make disciples, strengthen families, and transform our city through the gospel of Jesus Christ.</p>
+              <h4 style="margin-top:18px">Our Vision</h4>
+              <p>A thriving church of transformed lives and multiplied ministries across our region.</p>
+            </div>
+
+            <div class="about-card">
+              <h4>Our Story</h4>
+              <p>We began as a small group in 2011 and have grown into a diverse congregation committed to community service, youth development, and vibrant worship. Today we serve over 800 members and continue expanding our kingdom impact.</p>
+
+              <div class="leaders">
+                <div class="leader">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop" alt="Pastor Joshua Kat">
+                  <div>
+                    <strong>Rev. Joshua Kat</strong>
+                    <div class="role">Senior Pastor</div>
+                  </div>
+                </div>
+
+                <div class="leader">
+                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&auto=format&fit=crop" alt="Worship Leader">
+                  <div>
+                    <strong>Sis. Miriam</strong>
+                    <div class="role">Worship Director</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MINISTRIES -->
+      <section id="ministries" aria-labelledby="ministries-title">
+        <div class="wrap">
+          <h3 id="ministries-title">Our Ministries</h3>
+          <p>Join a ministry that fits your season of life — all are welcome</p>
+
+          <div class="ministries-scroll">
+            <div class="ministry-card">
+              <div class="ministry-header">
+                <div class="ministry-icon">⚡</div>
+              </div>
+              <div class="ministry-body">
+                <div>
+                  <h4>Youth Ministry</h4>
+                  <p>Dynamic teaching, hangouts, and mentorship for ages 13–25.</p>
+                </div>
+                <div class="ministry-more">Learn More →</div>
+              </div>
+            </div>
+
+            <div class="ministry-card">
+              <div class="ministry-header">
+                <div class="ministry-icon">🎵</div>
+              </div>
+              <div class="ministry-body">
+                <div>
+                  <h4>Worship Team</h4>
+                  <p>Lead congregational worship and participate in creative arts ministry.</p>
+                </div>
+                <div class="ministry-more">Learn More →</div>
+              </div>
+            </div>
+
+            <div class="ministry-card">
+              <div class="ministry-header">
+                <div class="ministry-icon">❤️</div>
+              </div>
+              <div class="ministry-body">
+                <div>
+                  <h4>Outreach</h4>
+                  <p>Community service, donation drives, and local partnerships for change.</p>
+                </div>
+                <div class="ministry-more">Learn More →</div>
+              </div>
+            </div>
+
+            <div class="ministry-card">
+              <div class="ministry-header">
+                <div class="ministry-icon">👶</div>
+              </div>
+              <div class="ministry-body">
+                <div>
+                  <h4>Children Ministry</h4>
+                  <p>Safe, fun, and faith-building activities during Sunday services.</p>
+                </div>
+                <div class="ministry-more">Learn More →</div>
+              </div>
+            </div>
+
+            <div class="ministry-card">
+              <div class="ministry-header">
+                <div class="ministry-icon">👩‍🤝‍👩</div>
+              </div>
+              <div class="ministry-body">
+                <div>
+                  <h4>Women's Ministry</h4>
+                  <p>Encouraging spiritual growth, accountability, and sisterhood in Christ.</p>
+                </div>
+                <div class="ministry-more">Learn More →</div>
+              </div>
+            </div>
+
+            <div class="ministry-card">
+              <div class="ministry-header">
+                <div class="ministry-icon">👨‍🤝‍👨</div>
+              </div>
+              <div class="ministry-body">
+                <div>
+                  <h4>Men's Ministry</h4>
+                  <p>Building strong leaders dedicated to spiritual growth and discipleship.</p>
+                </div>
+                <div class="ministry-more">Learn More →</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section id="gallery" aria-labelledby="gallery-title">
+        <div class="wrap">
+          <h3 id="gallery-title">Church Gallery</h3>
+          <p>Moments from our worship, events, and community service</p>
+
+          <div class="gallery-grid">
+            <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1516214104703-3efca8d1e58d?q=80&w=1200&auto=format&fit=crop')">
+              <img src="https://images.unsplash.com/photo-1516214104703-3efca8d1e58d?q=80&w=400&auto=format&fit=crop" alt="Church worship">
+              <div class="gallery-overlay">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1516414447565-b46a149bffe3?q=80&w=1200&auto=format&fit=crop')">
+              <img src="https://images.unsplash.com/photo-1516414447565-b46a149bffe3?q=80&w=400&auto=format&fit=crop" alt="Community event">
+              <div class="gallery-overlay">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1519671482677-3b11f1e3a2f7?q=80&w=1200&auto=format&fit=crop')">
+              <img src="https://images.unsplash.com/photo-1519671482677-3b11f1e3a2f7?q=80&w=400&auto=format&fit=crop" alt="Prayer meeting">
+              <div class="gallery-overlay">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1511379938547-c1f69b13d835?q=80&w=1200&auto=format&fit=crop')">
+              <img src="https://images.unsplash.com/photo-1511379938547-c1f69b13d835?q=80&w=400&auto=format&fit=crop" alt="Youth group">
+              <div class="gallery-overlay">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1200&auto=format&fit=crop')">
+              <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=400&auto=format&fit=crop" alt="Outreach program">
+              <div class="gallery-overlay">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1517457373614-b7152f800fd1?q=80&w=1200&auto=format&fit=crop')">
+              <img src="https://images.unsplash.com/photo-1517457373614-b7152f800fd1?q=80&w=400&auto=format&fit=crop" alt="Church fellowship">
+              <div class="gallery-overlay">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERMONS -->
+      <section id="sermons" aria-labelledby="sermons-title">
+        <div class="wrap">
+          <h3 id="sermons-title">Sermons</h3>
+          <p>Listen to inspiring messages from our pastoral team</p>
+
+          <div class="sermon-list">
+            <div class="sermon">
+              <div class="thumb" onclick="openSermonModal('https://www.youtube.com/embed/ysz5S6PUM-U')" role="button" tabindex="0">▶ Watch</div>
+              <div class="sermon-body">
+                <strong>Hope Renewed</strong>
+                <div class="meta"><span>Rev. Joshua Kat</span><span>Mar 3, 2025</span></div>
+                <p>A sermon on hope and restoration for the weary heart. Notes & scripture included.</p>
+              </div>
+            </div>
+
+            <div class="sermon">
+              <div class="thumb" onclick="openSermonModal('https://www.youtube.com/embed/ScMzIvxBSi4')" role="button" tabindex="0">▶ Watch</div>
+              <div class="sermon-body">
+                <strong>Living by Faith</strong>
+                <div class="meta"><span>Guest Speaker</span><span>Feb 16, 2025</span></div>
+                <p>Practical teaching on trust and spiritual rhythms.</p>
+              </div>
+            </div>
+
+            <div class="sermon">
+              <div class="thumb" onclick="openSermonModal('https://www.youtube.com/embed/tgbNymZ7vqY')" role="button" tabindex="0">▶ Watch</div>
+              <div class="sermon-body">
+                <strong>Prayer That Works</strong>
+                <div class="meta"><span>Rev. Joshua Kat</span><span>Jan 12, 2025</span></div>
+                <p>Teaching on persistent prayer and God's faithfulness.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GIVING -->
+      <section id="giving" aria-labelledby="giving-title">
+        <div class="wrap">
+          <h3 id="giving-title">Give</h3>
+          <p>Support ministry, outreach, and community projects</p>
+
+          <div class="giving-grid">
+            <div class="pay">
+              <strong>M-Pesa (Kenya)</strong>
+              <div class="pay-detail">Paybill: 123456 • Account: REDEEMED</div>
+              <button class="mpesa" onclick="alert('Copy:\nPaybill: 123456\nAccount: REDEEMED')">Copy Details</button>
+            </div>
+
+            <div class="pay">
+              <strong>PayPal</strong>
+              <div class="pay-detail">paypal@redeemedchurch.org</div>
+              <button class="paypal" onclick="window.open('https://www.paypal.com','_blank')">Donate via PayPal</button>
+            </div>
+
+            <div class="pay">
+              <strong>Bank Transfer</strong>
+              <div class="pay-detail">Account: 0123456789 • Bank: Example Bank</div>
+              <button class="bank" onclick="alert('Copy:\nBank: Example Bank\nAccount: 0123456789')">Copy Details</button>
+            </div>
+
+            <div class="pay">
+              <strong>Online Giving</strong>
+              <div class="pay-detail">Quick & secure giving through our platform</div>
+              <button class="general" onclick="alert('Online giving platform integration coming soon')">Give Online</button>
+            </div>
+          </div>
+
+          <p style="color:var(--muted);margin-top:20px;text-align:center;font-size:14px">All donations are secure. For receipts or giving records, email <a href="mailto:finance@redeemedchurch.org" style="color:var(--accent);text-decoration:none;font-weight:600">finance@redeemedchurch.org</a></p>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" aria-labelledby="contact-title">
+        <div class="wrap">
+          <h3 id="contact-title">Contact & Visit Us</h3>
+          <p>We'd love to hear from you and welcome you to our community</p>
+
+          <div class="contact-grid">
+            <div>
+              <form id="contactForm" onsubmit="submitContact(event)" aria-label="Contact form">
+                <input type="text" id="name" placeholder="Full name" required />
+                <input type="email" id="email" placeholder="Email address" required />
+                <input type="text" id="subject" placeholder="Subject" required />
+                <textarea id="message" rows="4" placeholder="Message / Prayer request" required></textarea>
+                <button type="submit">Send Message</button>
+                <div id="formStatus" style="color:var(--muted);font-size:13px;margin-top:8px;text-align:center"></div>
+              </form>
+            </div>
+
+            <div class="contact-info">
+              <div class="contact-item">
+                <strong>Service Times</strong>
+                <div>Sundays • 9:00 AM & 11:00 AM</div>
+              </div>
+
+              <div class="contact-item">
+                <strong>Address</strong>
+                <div>Umoja II, Busara Stage (Opp PCEA)</div>
+              </div>
+
+              <div class="contact-item">
+                <strong>Phone</strong>
+                <div><a href="tel:+254700000000" style="color:inherit;text-decoration:none">+254 700 000 000</a></div>
+              </div>
+
+              <div class="contact-item">
+                <strong>Email</strong>
+                <div><a href="mailto:info@redeemedchurch.org" style="color:inherit;text-decoration:none">info@redeemedchurch.org</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section>
+        <div class="cta-section">
+          <h3>Ready to Experience Redemption?</h3>
+          <p>New here? We'll help you feel at home. Join our worship experience or ask questions about our community.</p>
+          <div class="cta-buttons">
+            <a class="btn" href="#home" onclick="scrollToSection('home')">Plan Your Visit</a>
+            <a class="btn" href="#contact" onclick="scrollToSection('contact')">Get in Touch</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Redeemed Gospel Church</h4>
+          <p>A community dedicated to spreading the Gospel, discipling believers, and making a kingdom impact in our city and beyond.</p>
+          <div class="social-links">
+            <a href="https://facebook.com" target="_blank" rel="noopener" title="Facebook" aria-label="Follow us on Facebook">f</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" title="YouTube" aria-label="Subscribe on YouTube">▶</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener" title="Instagram" aria-label="Follow us on Instagram">📷</a>
+            <a href="https://twitter.com" target="_blank" rel="noopener" title="X (Twitter)" aria-label="Follow us on X">𝕏</a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="#home" onclick="scrollToSection('home')">Home</a>
+            <a href="#about" onclick="scrollToSection('about')">About Us</a>
+            <a href="#ministries" onclick="scrollToSection('ministries')">Ministries</a>
+            <a href="#sermons" onclick="scrollToSection('sermons')">Sermons</a>
+            <a href="#events" onclick="scrollToSection('events')">Events</a>
+            <a href="#gallery" onclick="scrollToSection('gallery')">Gallery</a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <div class="footer-links">
+            <a href="tel:+254700000000">+254 700 000 000</a>
+            <a href="mailto:info@redeemedchurch.org">info@redeemedchurch.org</a>
+            <a href="https://maps.google.com" target="_blank">Umoja II, Busara Stage</a>
+          </div>
+          <div style="margin-top:16px;color:rgba(255,255,255,0.7);font-size:14px">
+            <strong>Service Times</strong>
+            <div>Sundays • 9:00 AM & 11:00 AM</div>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4>Support</h4>
+          <div class="footer-links">
+            <a href="#giving" onclick="scrollToSection('giving')">Give</a>
+            <a href="#contact" onclick="scrollToSection('contact')">Contact</a>
+            <a href="#" onclick="alert('Privacy policy coming soon')">Privacy Policy</a>
+            <a href="#" onclick="alert('Terms of service coming soon')">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; <span id="year"></span> Redeemed Gospel Church — All rights reserved.</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Sermon Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="iframe-container">
+          <iframe id="modalFrame" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <div class="lightbox-content">
+      <img id="lightboxImg" src="" alt="Gallery image">
+      <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close lightbox">✕</button>
+    </div>
+  </div>
+
+<script>
+  // Utilities
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  function scrollToSection(id){
+    const el = document.getElementById(id);
+    if(!el) return;
+    el.scrollIntoView({behavior:'smooth'});
+    history.replaceState(null, '', '#' + id);
+    closeMobileMenu();
+  }
+
+  function toggleMobileMenu(){
+    const menu = document.getElementById('navMenu');
+    menu.classList.toggle('hidden');
+  }
+
+  function closeMobileMenu(){
+    const menu = document.getElementById('navMenu');
+    menu.classList.remove('hidden');
+  }
+
+  // Sermon modal
+  function openSermonModal(url){
+    const modal = document.getElementById('modal');
+    const frame = document.getElementById('modalFrame');
+    frame.src = url + '?autoplay=1';
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(){
+    const modal = document.getElementById('modal');
+    const frame = document.getElementById('modalFrame');
+    frame.src = '';
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Lightbox
+  function openLightbox(src){
+    const lightbox = document.getElementById('lightbox');
+    const img = document.getElementById('lightboxImg');
+    img.src = src;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox(){
+    const lightbox = document.getElementById('lightbox');
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Contact form
+  function submitContact(e){
+    e.preventDefault();
+    const status = document.getElementById('formStatus');
+    const name = document.getElementById('name').value.trim();
+    if(!name){ status.textContent = 'Please enter your name.'; return; }
+    status.textContent = 'Sending...';
+    setTimeout(()=> {
+      status.textContent = '✓ Thanks! Your message was sent. Our team will follow up via email.';
+      status.style.color = 'var(--accent)';
+      document.getElementById('contactForm').reset();
+      setTimeout(() => {
+        status.textContent = '';
+        status.style.color = 'var(--muted)';
+      }, 5000);
+    }, 900);
+  }
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape'){
+      closeModal();
+      closeLightbox();
+    }
+  });
+
+  // Close modal on outside click
+  document.getElementById('modal')?.addEventListener('click', (e) => {
+    if(e.target.id === 'modal') closeModal();
+  });
+
+  document.getElementById('lightbox')?.addEventListener('click', (e) => {
+    if(e.target.id === 'lightbox') closeLightbox();
+  });
+
+  // Scroll animations
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {threshold: 0.1});
+
+  document.querySelectorAll('.event, .sermon, .ministry-card').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
